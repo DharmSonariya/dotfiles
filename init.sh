@@ -24,19 +24,19 @@ done
 echo 'enable EPEL repo'
 sleep 2
 
-sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm || error=true
+sudo -tt yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm || error=true
 ##############################################################################################################
 echo "Updating installed packages"
 sleep 2
 
-sudo yum update -y
+sudo -tt yum update -y
 ##############################################################################################################
 echo "Installing yum packages"
 sleep 2
 
-sudo yum groupinstall -y 'Development Tools'
+sudo -tt yum groupinstall -y 'Development Tools'
 
-sudo yum install -y \
+sudo -tt yum install -y \
     git \
     ncurses-devel \
     adobe-source-code-pro-fonts
@@ -110,7 +110,7 @@ sleep 2
 
 echo "For n to work properly, you need to own homebrew stuff - setting $(whoami) as owner of $(brew --prefix)/*"
 sleep 2
-sudo chown -R $(whoami) $(brew --prefix)/*
+sudo -tt chown -R $(whoami) $(brew --prefix)/*
 
 ##############################################################################################################
 echo 'Configuring Source Code Pro Font'
@@ -121,7 +121,7 @@ fc-cache -f -v
 # https://docs.docker.com/compose/completion/
 
 # echo 'Apply executable permissions to the binary'
-# sudo chmod +x /usr/local/bin/docker-compose
+# sudo -tt chmod +x /usr/local/bin/docker-compose
 
 echo 'Test the Docker Compose installation'
 sleep 2
@@ -157,10 +157,10 @@ if [ -x "$(command -v code)" ]; then
     echo '✔️ code installed'
 else
     echo 'Installing Code'
-    sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
-    sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
-    # sudo yum -y check-update
-    sudo yum -y install code
+    sudo -tt rpm --import https://packages.microsoft.com/keys/microsoft.asc
+    sudo -tt sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+    # sudo -tt yum -y check-update
+    sudo -tt yum -y install code
 fi
 
 echo 'Test the installation'
@@ -192,7 +192,7 @@ echo 'Installing Google Chrome with the key and repository'
 
 sleep 2
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
-sudo yum install -y ./google-chrome-stable_current_*.rpm
+sudo -tt yum install -y ./google-chrome-stable_current_*.rpm
 ##############################################################################################################
 echo 'Configuring git'
 sleep 2
@@ -205,7 +205,7 @@ git config --global core.excludesfile ~/.gitignore
 
 echo 'Download Git Auto-Completion'
 sleep 2
-sudo su -c "$(curl 'https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash' >${homedir}/.git-completion.bash)"
+sudo -tt su -c "$(curl 'https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash' >${homedir}/.git-completion.bash)"
 
 echo "Setting global git config with email $EMAIL and username $USERNAME"
 sleep 2
@@ -241,7 +241,7 @@ aws --version
 
 echo Install Session Manager Plugin on Linux
 curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_64bit/session-manager-plugin.rpm" -o "session-manager-plugin.rpm"
-sudo yum install -y session-manager-plugin.rpm
+sudo -tt yum install -y session-manager-plugin.rpm
 
 echo 'Test the installation'
 session-manager-plugin
@@ -251,4 +251,4 @@ echo 'done!'
 
 echo 'Now time for reboot the system and login to the new user account'
 sleep 2
-sudo reboot
+sudo -tt reboot
