@@ -71,7 +71,4 @@ yum install -y ./google-chrome-stable_current_*.rpm
 echo Install Session Manager Plugin on Linux
 curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_64bit/session-manager-plugin.rpm" -o "session-manager-plugin.rpm"
 yum install -y session-manager-plugin.rpm
-
-echo 'Test the installation'
-session-manager-plugin
 ##############################################################################################################
