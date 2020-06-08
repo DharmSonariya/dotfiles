@@ -9,10 +9,11 @@
 echo "list of files to download in $HOME"
 files="aliases bash_profile bash_prompt bashrc"
 
-file_url="https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/.aliases 
-https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/.bash_profile 
-https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/.bash_prompt 
-https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/.bashrc"
+file_url="https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/all_dotfiles/.aliases 
+https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/all_dotfiles/.bash_profile 
+https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/all_dotfiles/.bash_prompt 
+https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/all_dotfiles/.bashrc 
+https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/all_dotfiles/.gitignore"
 
 for file in ${file_url}; do
     echo "Downloading $file in home directory."
@@ -30,7 +31,7 @@ if [ -x "$(command -v brew)" ]; then
 else
     echo "Installing homebrew now..."
     sleep 2
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+    echo | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
 
 test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
@@ -141,7 +142,7 @@ git config --global core.excludesfile ~/.gitignore
 
 echo 'Download Git Auto-Completion'
 sleep 2
-su -c "$(curl 'https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash' >${homedir}/.git-completion.bash)"
+/bin/bash -c "$(curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o .git-completion.bash)"
 
 echo "Setting global git config with email $EMAIL and username $USERNAME"
 sleep 2
@@ -172,6 +173,16 @@ aws configure --profile $PROFILENAME
 echo 'Test the installation'
 sleep 2
 aws --version
+##############################################################################################################
+echo 'Test Visual Studio Code the installation'
+sleep 2
+code --version
+##############################################################################################################
+# https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html#install-plugin-linux
+
+echo 'Test the installation for Session Manager Plugin on Linux'
+session-manager-plugin
+sleep 2
 ##############################################################################################################
 echo 'done!'
 
