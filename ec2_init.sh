@@ -51,4 +51,4 @@ echo 'done!'
 
 echo "Now time for reboot the system and login to the $(whoami) account"
 sleep 2
--S reboot
+reboot
