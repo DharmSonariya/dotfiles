@@ -208,9 +208,4 @@ code --version
 echo 'Test the installation for Session Manager Plugin on Linux'
 session-manager-plugin
 sleep 2
-##############################################################################################################
-echo 'done!'
 
-echo "Now time for reboot the system and login to the $(whoami) account"
-sleep 2
-sudo -S reboot
