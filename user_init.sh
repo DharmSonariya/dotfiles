@@ -174,6 +174,27 @@ echo 'Test the installation'
 sleep 2
 aws --version
 ##############################################################################################################
+# https://docs.aws.amazon.com/toolkit-for-vscode/latest/userguide/setup-toolkit.html
+# https://marketplace.visualstudio.com/itemdetails?itemName=AmazonWebServices.aws-toolkit-vscode
+
+echo 'Installing VS Code extensions'
+sleep 2
+code --install-extension AmazonWebServices.aws-toolkit-vscode \
+    --install-extension teabyii.ayu \
+    --install-extension rogalmic.bash-debug \
+    --install-extension CoenraadS.bracket-pair-colorizer-2 \
+    --install-extension streetsidesoftware.code-spell-checker \
+    --install-extension ms-azuretools.vscode-docker \
+    --install-extension rubbersheep.gi \
+    --install-extension donjayamanne.githistory \
+    --install-extension ms-vscode.theme-predawnkit \
+    --install-extension ms-python.python \
+    --install-extension Shan.code-settings-sync \
+    --install-extensione vsc-python-indent \
+    --install-extension foxundermoon.shell-format \
+    --install-extension Remisa.shellman \
+    --install-extension mauve.terraform
+
 echo 'Test Visual Studio Code the installation'
 sleep 2
 code --version
