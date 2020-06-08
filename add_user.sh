@@ -23,3 +23,13 @@ sudo cp -r /home/"$ORIGINAL_USER"/.ssh/ /home/"$USERNAME"/ && sudo chown -R "$US
 echo Invoke sudo_init.sh invoke user_init.sh to /home/"$USERNAME"
 curl -fsSL https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/sudo_init.sh | sudo bash \
 && /bin/su -c "cd  /home/$USERNAME/ && sh -c $(curl -fsSL https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/user_init.sh)" - "$USERNAME"
+
+if [[ $(uname -r) == *.amzn2.x86_64 ]]
+then
+    curl -fsSL https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/ec2_init.sh | sudo bash "$USERNAME"
+elif [[ $(uname -r) == *.el7.x86_64 ]]
+then
+    curl -fsSL https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/centos_init.sh | sudo bash
+else
+    printf "This setup is not supported on this OS"
+fi
