@@ -197,7 +197,7 @@ code --install-extension AmazonWebServices.aws-toolkit-vscode \
     --install-extensione vsc-python-indent \
     --install-extension foxundermoon.shell-format \
     --install-extension Remisa.shellman \
-    --install-extension mauve.terraform
+    --install-extension HashiCorp.terraform
 
 echo 'Test Visual Studio Code the installation'
 sleep 2
