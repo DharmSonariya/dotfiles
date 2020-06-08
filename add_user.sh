@@ -26,10 +26,10 @@ curl -fsSL https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/sudo_
 
 if [[ $(uname -r) == *.amzn2.x86_64 ]]
 then
-    curl -fsSL https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/ec2_init.sh | sudo bash "$USERNAME"
+    curl -fsSL https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/ec2_init.sh "$USERNAME" | sudo bash
 elif [[ $(uname -r) == *.el7.x86_64 ]]
 then
-    curl -fsSL https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/centos_init.sh | sudo bash
+    curl -fsSL https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/centos_init.sh "$USERNAME" | sudo bash
 else
     printf "This setup is not supported on this OS"
 fi
