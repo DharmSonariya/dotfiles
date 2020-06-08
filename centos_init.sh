@@ -6,7 +6,7 @@
 echo "Installing docker"
 sleep 2
 
-brew install docker
+sudo -u $1 brew install docker
 ##############################################################################################################
 echo 'Starting the Docker'
 sleep 2
@@ -14,7 +14,7 @@ systemctl start docker
 
 echo 'Test the installation'
 sleep 2
-sudo -u $1 docker --version
+docker --version
 ##############################################################################################################
 echo 'Manage Docker as a non-root user'
 sleep 2
@@ -26,6 +26,11 @@ EOF
 echo 'Test the installation'
 sleep 2
 docker --version
+##############################################################################################################
+echo 'Installing MATE desktop environment'
+sleep 2
+yum groupinstall -y "MATE Desktop"
+bash -c "echo PREFERRED=/usr/bin/mate-session > /etc/sysconfig/desktop"
 ##############################################################################################################
 echo 'done!'
 
