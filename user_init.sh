@@ -88,9 +88,9 @@ sleep 2
 
 # Make sure the user is the owner of the homebrew directory
 
-echo "For n to work properly, you need to own homebrew stuff - setting $(whoami) as owner of $(brew --prefix)/*"
+echo "For homebrew to work properly, you need to own homebrew stuff - setting $(whoami) as owner of $(brew --prefix)/*"
 sleep 2
-sudo -tt chown -R $(whoami) $(brew --prefix)/*
+sudo -S chown -R $(whoami) $(brew --prefix)/*
 
 ##############################################################################################################
 echo 'Configuring Source Code Pro Font'
@@ -101,7 +101,7 @@ fc-cache -f -v
 # https://docs.docker.com/compose/completion/
 
 # echo 'Apply executable permissions to the binary'
-# sudo -tt chmod +x /usr/local/bin/docker-compose
+# sudo -S chmod +x /usr/local/bin/docker-compose
 
 echo 'Test the Docker Compose installation'
 sleep 2
@@ -130,11 +130,13 @@ sam --version
 echo 'Installing the AWS SDK for Python (Boto3)'
 sleep 2
 python3 -m pip install boto3 --user
+##############################################################################################################
+echo ==============================================================================================================================
 echo 'Configuring git'
+echo ==============================================================================================================================
 sleep 2
 read -p 'Enter the email address associated with your GitHub account: ' EMAIL
 read -p 'Enter your full name (Ex. John Doe): ' USERNAME
-##############################################################################################################
 
 echo 'Adding global .gitignore file'
 sleep 2
@@ -165,7 +167,9 @@ git config --list
 # https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html
 
 echo 'Configuring the AWS CLI'
+echo ==============================================================================================================================
 echo 'Enter your profile name (Ex. produser): '
+echo ==============================================================================================================================
 sleep 2
 read -r PROFILENAME
 aws configure --profile $PROFILENAME
