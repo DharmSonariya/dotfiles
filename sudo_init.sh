@@ -7,6 +7,7 @@ echo "Updating installed packages, enabling EPEL repo and installing yum package
 sleep 2
 
 yum update -y && yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && yum groupinstall -y 'Development Tools' && yum install -y \
+    perl-devel \
     git \
     ncurses-devel \
     adobe-source-code-pro-fonts
