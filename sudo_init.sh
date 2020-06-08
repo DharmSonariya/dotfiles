@@ -3,22 +3,10 @@
 ##############################################################################################################
 # This script installs Linux Packages and it's require sudo privileged
 ##############################################################################################################
-echo 'enable EPEL repo'
+echo "Updating installed packages, enabling EPEL repo and installing yum packages"
 sleep 2
 
-yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm || error=true
-##############################################################################################################
-echo "Updating installed packages"
-sleep 2
-
-yum update -y
-##############################################################################################################
-echo "Installing yum packages"
-sleep 2
-
-yum groupinstall -y 'Development Tools'
-
-yum install -y \
+yum update -y && yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && yum groupinstall -y 'Development Tools' && yum install -y \
     git \
     ncurses-devel \
     adobe-source-code-pro-fonts
@@ -34,10 +22,6 @@ else
     # yum -y check-update
     yum -y install code
 fi
-
-echo 'Test the installation'
-sleep 2
-code --version
 ##############################################################################################################
 # https://docs.aws.amazon.com/toolkit-for-vscode/latest/userguide/setup-toolkit.html
 # https://marketplace.visualstudio.com/itemdetails?itemName=AmazonWebServices.aws-toolkit-vscode
