@@ -18,3 +18,4 @@ unset file
 
 # AWSP - AWS Profile Switcher
 alias awsp="source _awsp"
+
