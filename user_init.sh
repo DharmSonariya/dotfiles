@@ -59,6 +59,7 @@ sleep 2
         gcc \
         git-extras \
         node \
+        npm \
         python \
         pylint \
         black \
@@ -81,7 +82,7 @@ sleep 2
         aws-cfn-tools \
         aws-sam-cli \
         aws-shell \
-        awscli
+        awscli@1
 } || {
     echo "One or more brew formulas failed to install"
 }
@@ -208,4 +209,10 @@ code --version
 echo 'Test the installation for Session Manager Plugin on Linux'
 session-manager-plugin
 sleep 2
+##############################################################################################################
+# https://github.com/johnnyopao/awsp
 
+echo 'Installing the installation for AWSP - AWS Profile Switcher'
+
+npm install -g awsp
+##############################################################################################################
