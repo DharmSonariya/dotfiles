@@ -1,4 +1,5 @@
-#!/bin/bash -e
+#!/bin/bash -xe
+set -x
 
 ##############################################################################################################
 # This script creates symlinks from the home directory to any desired init_brew_dir in ${homedir}/init_brew_dir
@@ -38,8 +39,9 @@ test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
 test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 test -r ~/.bashrc && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bashrc
 echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
+. .bashrc
 
-echo 'Test the installation'
+echo 'Test the Homebrew installation'
 sleep 2
 
 brew --version
@@ -81,7 +83,6 @@ sleep 2
         aws-cdk \
         aws-cfn-tools \
         aws-sam-cli \
-        aws-shell \
         awscli@1
 } || {
     echo "One or more brew formulas failed to install"
@@ -109,13 +110,19 @@ sleep 2
 
 docker-compose --version
 ##############################################################################################################
+# https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_CLI_installation.html#ECS_CLI_install
+echo 'Test the amazon-ecs-cli installation'
+sleep 2
+
+ecs-cli --version
+##############################################################################################################
 # https://docs.aws.amazon.com/cdk/latest/guide/getting_started.html
 
 echo 'Updating the AWS CDK Language Dependencies'
 sleep 2
 python3 -m pip install --upgrade aws-cdk.core --user
 
-echo 'Test the installation'
+echo 'Test the AWS CDK installation'
 sleep 2
 cdk --version
 ##############################################################################################################
@@ -151,10 +158,6 @@ echo "Setting global git config with email $EMAIL and username $USERNAME"
 sleep 2
 git config --global --replace-all user.email "$EMAIL"
 git config --global --replace-all user.name "$USERNAME"
-
-echo 'Check the configuration'
-sleep 2
-git config --list
 ##############################################################################################################
 echo Connections to AWS CodeCommit Repositories with the AWS CLI Credential Helper
 sleep 2
@@ -175,7 +178,7 @@ sleep 2
 read -r PROFILENAME
 aws configure --profile $PROFILENAME
 
-echo 'Test the installation'
+echo 'Test the AWS CLI installation'
 sleep 2
 aws --version
 ##############################################################################################################
@@ -206,7 +209,7 @@ code --version
 ##############################################################################################################
 # https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html#install-plugin-linux
 
-echo 'Test the installation for Session Manager Plugin on Linux'
+echo 'Test the Session Manager Plugin on Linux installation'
 session-manager-plugin
 sleep 2
 ##############################################################################################################
