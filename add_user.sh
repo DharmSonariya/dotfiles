@@ -25,7 +25,7 @@ curl -fsSL https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/sudo_
 if [[ $(uname -r) == *.amzn2.x86_64 ]]
 then
     curl -fsSL https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/ec2_init.sh "$USERNAME"
-elif [[ $(uname -r) == *.el8.x86_64 || *.el7.x86_64 ]]
+elif [[ $(uname -r) == *.el7.x86_64 ]]
 then
     curl -fsSL https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/centos_init.sh "$USERNAME"
 else
