@@ -1,4 +1,5 @@
-#!/bin/bash -e
+#!/bin/bash -xe
+set -x
 
 ##############################################################################################################
 echo This script will creates user and invoke installtion
