@@ -4,6 +4,10 @@ set -x
 ##############################################################################################################
 # This script installs Linux Packages specific for Amazon Linux 2 AMI with sudo privileged
 ##############################################################################################################
+
+echo Add known SSH authorize key, this is specially require for EC2 instance
+cp -r /home/"$ORIGINAL_USER"/.ssh/ /home/"$USERNAME"/ && sudo chown -R "$USERNAME":"$USERNAME" /home/"$USERNAME"/.ssh
+##############################################################################################################
 echo "Installing docker"
 sleep 2
 
