@@ -1,4 +1,5 @@
-#!/bin/bash -e
+#!/bin/bash -xe
+set -x
 
 ##############################################################################################################
 # This script installs Linux Packages specific for Amazon Linux 2 AMI with sudo privileged
@@ -12,10 +13,6 @@ echo 'Starting the Docker'
 sleep 2
 systemctl start docker
 
-echo 'Test the installation'
-sleep 2
-docker --version
-##############################################################################################################
 echo 'Manage Docker as a non-root user'
 sleep 2
 usermod -aG docker "$(whoami)"
@@ -23,7 +20,7 @@ newgrp docker <<EOF
 echo This is running as group \$(id -gn)
 EOF
 
-echo 'Test the installation'
+echo 'Test Docker the installation'
 sleep 2
 docker --version
 ##############################################################################################################
@@ -37,7 +34,7 @@ bash -c "echo PREFERRED=/usr/bin/mate-session > /etc/sysconfig/desktop"
 echo "/usr/bin/mate-session" >~/.Xclients && chmod +x ~/.Xclients
 ##############################################################################################################
 echo 'Installing TigerVNC'
-sleep 2
+sleep 10
 yum install -y tigervnc-server
 vncpasswd
 vncserver :1
@@ -51,4 +48,4 @@ echo 'done!'
 
 echo "Now time for reboot the system and login to the $(whoami) account"
 sleep 2
-reboot
+sudo -S reboot
