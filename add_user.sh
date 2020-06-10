@@ -19,14 +19,12 @@ usermod -aG wheel "$USERNAME"
 echo "User has been added to wheel group"
 
 echo Invoke sudo_init.sh invoke user_init.sh to /home/"$USERNAME"
-curl -fsSL https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/sudo_init.sh \
-&& /bin/su -c "cd  /home/$USERNAME/ && sh -c $(curl -fsSL https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/user_init.sh)" - "$USERNAME"
+curl -fsSL https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/sudo_init.sh &&
+    /bin/su -c "cd  /home/$USERNAME/ && sh -c $(curl -fsSL https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/user_init.sh)" - "$USERNAME"
 
-if [[ $(uname -r) == *.amzn2.x86_64 ]]
-then
+if [[ $(uname -r) == *.amzn2.x86_64 ]]; then
     curl -fsSL https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/ec2_init.sh "$USERNAME"
-elif [[ $(uname -r) == *.el7.x86_64 ]]
-then
+elif [[ $(uname -r) == *.el7.x86_64 ]]; then
     curl -fsSL https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/centos_init.sh "$USERNAME"
 else
     printf "This setup is not supported on this OS"

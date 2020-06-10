@@ -15,6 +15,7 @@ yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarc
 ##############################################################################################################
 echo 'Installing Visual Studio Code with the key and repository'
 sleep 10
+
 if [ -x "$(command -v code)" ]; then
     echo '✔️ code installed'
 else
@@ -26,8 +27,8 @@ else
 fi
 ##############################################################################################################
 echo 'Installing Google Chrome with the key and repository'
-
 sleep 10
+
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
 yum install -y ./google-chrome-stable_current_*.rpm
 ##############################################################################################################
@@ -35,6 +36,7 @@ yum install -y ./google-chrome-stable_current_*.rpm
 
 echo Install Session Manager Plugin on Linux
 sleep 10
+
 curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_64bit/session-manager-plugin.rpm" -o "session-manager-plugin.rpm"
 yum install -y session-manager-plugin.rpm
 ##############################################################################################################

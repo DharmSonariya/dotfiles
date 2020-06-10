@@ -25,6 +25,7 @@ done
 # https://brew.sh/
 # https://docs.brew.sh/Homebrew-on-Linux
 echo 'Installing Homebrew'
+
 sleep 2
 if [ -x "$(command -v brew)" ]; then
     echo "✔️ Homebrew installed"
@@ -47,12 +48,14 @@ brew --version
 
 echo "Making sure homebrew is up to date"
 sleep 2
+
 brew update --force
 brew update && brew upgrade && brew cleanup
 brew doctor
 ##############################################################################################################
 echo "Installing Brew Formulae - packages"
 sleep 2
+
 {
     brew tap aws/tap
 
@@ -91,11 +94,12 @@ sleep 2
 
 echo "For homebrew to work properly, you need to own homebrew stuff - setting $(whoami) as owner of $(brew --prefix)/*"
 sleep 2
-sudo -S chown -R $(whoami) $(brew --prefix)/*
 
+sudo -S chown -R $(whoami) $(brew --prefix)/*
 ##############################################################################################################
 echo 'Configuring Source Code Pro Font'
 sleep 2
+
 fc-cache -f -v
 ##############################################################################################################
 # https://docs.docker.com/compose/install/
@@ -129,6 +133,7 @@ cdk --version
 
 echo 'Test the  AWS SAM CLI installation'
 sleep 2
+
 sam --version
 ##############################################################################################################
 # https://aws.amazon.com/sdk-for-python/
@@ -136,25 +141,30 @@ sam --version
 
 echo 'Installing the AWS SDK for Python (Boto3)'
 sleep 2
+
 python3 -m pip install boto3 --user
 ##############################################################################################################
 echo ==============================================================================================================================
 echo 'Configuring git'
 echo ==============================================================================================================================
 sleep 2
+
 read -p 'Enter the email address associated with your GitHub account: ' EMAIL
 read -p 'Enter your full name (Ex. John Doe): ' USERNAME
 
 echo 'Adding global .gitignore file'
 sleep 2
+
 git config --global core.excludesfile ~/.gitignore
 
 echo 'Download Git Auto-Completion'
 sleep 2
+
 /bin/bash -c "$(curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o .git-completion.bash)"
 
 echo "Setting global git config with email $EMAIL and username $USERNAME"
 sleep 2
+
 git config --global --replace-all user.email "$EMAIL"
 git config --global --replace-all user.name "$USERNAME"
 ##############################################################################################################
@@ -165,6 +175,7 @@ git config --global credential.UseHttpPath true
 
 echo 'Confirm the configuration'
 sleep 2
+
 git config --list
 ##############################################################################################################
 # https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html
@@ -174,11 +185,13 @@ echo ===========================================================================
 echo 'Enter your profile name (Ex. produser): '
 echo ==============================================================================================================================
 sleep 2
+
 read -r PROFILENAME
 aws configure --profile $PROFILENAME
 
 echo 'Test the AWS CLI installation'
 sleep 2
+
 aws --version
 ##############################################################################################################
 # https://docs.aws.amazon.com/toolkit-for-vscode/latest/userguide/setup-toolkit.html
@@ -186,6 +199,7 @@ aws --version
 
 echo 'Installing VS Code extensions'
 sleep 2
+
 code --install-extension AmazonWebServices.aws-toolkit-vscode \
     --install-extension teabyii.ayu \
     --install-extension rogalmic.bash-debug \
@@ -204,13 +218,15 @@ code --install-extension AmazonWebServices.aws-toolkit-vscode \
 
 echo 'Test Visual Studio Code the installation'
 sleep 2
+
 code --version
 ##############################################################################################################
 # https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html#install-plugin-linux
 
 echo 'Test the Session Manager Plugin on Linux installation'
-session-manager-plugin
 sleep 2
+
+session-manager-plugin
 ##############################################################################################################
 # https://github.com/johnnyopao/awsp
 

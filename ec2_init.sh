@@ -15,6 +15,7 @@ yum install -y docker
 ##############################################################################################################
 echo 'Starting the Docker'
 sleep 2
+
 systemctl start docker
 
 echo 'Manage Docker as a non-root user'
@@ -26,12 +27,14 @@ EOF
 
 echo 'Test Docker the installation'
 sleep 2
+
 docker --version
 ##############################################################################################################
 # https://aws.amazon.com/premiumsupport/knowledge-center/ec2-linux-2-install-gui/
 
 echo 'Installing MATE desktop environment'
 sleep 2
+
 amazon-linux-extras install -y mate-desktop1.x
 bash -c "echo PREFERRED=/usr/bin/mate-session > /etc/sysconfig/desktop"
 
@@ -39,6 +42,7 @@ echo "/usr/bin/mate-session" >~/.Xclients && chmod +x ~/.Xclients
 ##############################################################################################################
 echo 'Installing TigerVNC'
 sleep 10
+
 yum install -y tigervnc-server
 vncpasswd
 vncserver :1
