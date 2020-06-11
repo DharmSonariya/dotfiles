@@ -18,7 +18,7 @@ https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/all_dotfiles/.gi
 
 for file in ${file_url}; do
     echo "Downloading $file in home directory."
-    curl ${file} -O
+    sudo -u $USERNAME curl ${file} -O
 done
 source ~/.bashrc
 ##############################################################################################################
@@ -254,3 +254,8 @@ echo 'Installing the installation for AWSP - AWS Profile Switcher'
 
 npm install -g awsp
 ##############################################################################################################
+echo 'done!'
+
+echo "Now time for reboot the system and login to the $(whoami) account"
+sleep 2
+sudo -S reboot
