@@ -11,12 +11,12 @@ sleep 2
 yum install -y 'dnf-command(config-manager)' && \
 yum config-manager --set-enabled PowerTools && \
 yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && \
-yum update -y && \
 yum groupinstall -y 'Development Tools' && \
 yum install -y \
-    git \
-    perl-devel \
-    ncurses-devel
+git \
+perl-devel \
+ncurses-devel && \
+yum update -y
 ##############################################################################################################
 echo 'Installing Visual Studio Code with the key and repository'
 sleep 10
