@@ -27,9 +27,9 @@ elif [[ $(uname -r) == *.el7.x86_64 ]]; then
     /bin/su -c "cd  /home/$USERNAME/ && sh -c $(curl -fsSL https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/el7_user_init.sh)" - "$USERNAME" && 
     curl -fsSL https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/el7_ws_init.sh "$USERNAME"
 elif [[ $(uname -r) == *.el8_0.x86_64 ]]; then
-    curl -fsSL https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/el8_sudo_init.sh | sh &&
-    cd  /home/$USERNAME/  | sh && \
-    sudo -u $USERNAME curl -fsSL https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/el8_user_init.sh | sh
+    su - $USERNAME | sh && \
+    curl -fsSL https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/el8_sudo_init.sh | sh sudo &&
+    curl -fsSL https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/el8_user_init.sh | sudo -u $(whoami) sh
 else
     printf "This setup is not supported on this OS"
 fi
