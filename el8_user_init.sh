@@ -20,7 +20,7 @@ for file in ${file_url}; do
     echo "Downloading $file in home directory."
     curl ${file} -O
 done
-
+source ~/.bashrc
 ##############################################################################################################
 # https://brew.sh/
 # https://docs.brew.sh/Homebrew-on-Linux
@@ -40,6 +40,7 @@ test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
 test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 test -r ~/.bashrc && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bashrc
 echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
+source ~/.bashrc
 
 echo 'Test the Homebrew installation'
 sleep 2
@@ -69,7 +70,6 @@ sleep 2
         black \
         fontconfig \
         tree \
-        curl \
         tldr \
         tmux \
         wget \
@@ -80,6 +80,7 @@ sleep 2
         terraform \
         terragrunt \
         packer \
+        docker \
         docker-compose \
         amazon-ecs-cli \
         aws-cdk \
@@ -89,6 +90,8 @@ sleep 2
 } || {
     echo "One or more brew formulas failed to install"
 }
+
+source ~/.bashrc
 
 # Make sure the user is the owner of the homebrew directory
 
@@ -101,6 +104,23 @@ sudo -S chown -R $(whoami) $(brew --prefix)/*
 # sleep 2
 
 # fc-cache -f -v
+##############################################################################################################
+echo 'Starting the Docker'
+sleep 2
+
+systemctl start docker
+
+echo 'Manage Docker as a non-root user'
+sleep 2
+usermod -aG docker "$(whoami)"
+newgrp docker <<EOF
+echo This is running as group \$(id -gn)
+EOF
+
+echo 'Test Docker the installation'
+sleep 2
+
+docker --version
 ##############################################################################################################
 # https://docs.docker.com/compose/install/
 # https://docs.docker.com/compose/completion/
