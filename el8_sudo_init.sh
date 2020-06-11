@@ -15,7 +15,8 @@ yum groupinstall -y 'Development Tools' && \
 yum install -y \
 git \
 perl-devel \
-ncurses-devel && \
+ncurses-devel \
+yum-utils && \
 yum update -y
 ##############################################################################################################
 echo 'Installing Visual Studio Code with the key and repository'
