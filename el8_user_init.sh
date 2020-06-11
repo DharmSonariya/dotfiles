@@ -97,10 +97,10 @@ sleep 2
 
 sudo -S chown -R $(whoami) $(brew --prefix)/*
 ##############################################################################################################
-echo 'Configuring Source Code Pro Font'
-sleep 2
+# echo 'Configuring Source Code Pro Font'
+# sleep 2
 
-fc-cache -f -v
+# fc-cache -f -v
 ##############################################################################################################
 # https://docs.docker.com/compose/install/
 # https://docs.docker.com/compose/completion/
