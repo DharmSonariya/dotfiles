@@ -4,9 +4,10 @@ set -x
 ##############################################################################################################
 # This script installs Linux Packages and it's require sudo privileged
 ##############################################################################################################
+# https://fedoraproject.org/wiki/EPEL
 echo "Updating installed packages, enabling EPEL repo and installing yum packages"
 sleep 2
-echo "enable the PowerTools repository"
+
 yum install -y 'dnf-command(config-manager)' && \
 yum config-manager --set-enabled PowerTools && \
 yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && \
