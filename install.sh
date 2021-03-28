@@ -1,21 +1,8 @@
 #!/bin/bash -xe
 
 ##############################################################################################################
-echo This script will creates user and invoke installtion
+echo This script will invoke installtion
 ##############################################################################################################
-
-export ORIGINAL_USER=$(whoami)
-
-echo "Hello $(whoami),"
-echo "Enter the new user name (Ex. john): "
-read -r username
-export USERNAME="$username"
-
-echo Add new users
-adduser "$USERNAME"
-passwd "$USERNAME"
-usermod -aG wheel "$USERNAME"
-echo "User has been added to wheel group"
 
 if [[ $(uname -r) == *.amzn2.x86_64 ]]; then
     curl -fsSL https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/el7_sudo_init.sh | sudo sh &&
