@@ -1,6 +1,4 @@
 #!/bin/bash -xe
-set -x
-exec > >(tee /var/log/user-data.log | logger -t user-data) 2>&1
 
 ##############################################################################################################
 # This script installs Linux Packages and it's require sudo privileged

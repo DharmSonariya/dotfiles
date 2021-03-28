@@ -1,6 +1,4 @@
 #!/bin/bash -xe
-set -x
-exec > >(tee /var/log/user-data.log | logger -t user-data) 2>&1
 
 ##############################################################################################################
 # This script creates symlinks from the home directory to any desired init_brew_dir in ${homedir}/init_brew_dir
