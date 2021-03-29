@@ -1,27 +1,7 @@
 #!/bin/bash -xe
 
 ##############################################################################################################
-echo This step will creates user and it\'s require sudo privileged
-##############################################################################################################
-
-export ORIGINAL_USER=$(whoami)
-
-echo "Hello $(whoami),"
-echo "Enter the new user name (Ex. john): "
-read -r username
-export USERNAME="$username"
-
-echo Add new users
-adduser "$USERNAME"
-passwd "$USERNAME"
-usermod -aG wheel "$USERNAME"
-echo "User has been added to wheel group"
-
-cd /home/$USERNAME
-su $USERNAME
-
-##############################################################################################################
-echo This step installs Linux Packages and it\'s require sudo privileged
+echo This script installs Linux Packages and it\'s require sudo privileged
 ##############################################################################################################
 echo "Updating installed packages, enabling EPEL repo and installing yum packages"
 sleep 2
