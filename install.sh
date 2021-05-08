@@ -107,6 +107,9 @@ fc-cache -f -v
 echo "Run all scripts in programs/"
 for f in programs/*.sh; do bash "$f" -H; done
 
+echo "Reload .bashrc"
+source ~/.bashrc
+
 ##############################################################################################################
 if [ -x "$(command -v calibre)" ]; then
     echo "✔️ Calibre installed"
