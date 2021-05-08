@@ -58,6 +58,7 @@ sleep 2
         git \
         git-extras \
         htop \
+        ipython \
         jq \
         lsof \
         lynx \
