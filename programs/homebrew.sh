@@ -71,11 +71,3 @@ sleep 2
 } || {
     echo "One or more brew formulas failed to install"
 }
-
-# Make sure the user is the owner of the homebrew directory
-
-echo "For homebrew to work properly, you need to own homebrew stuff - setting $(whoami) as owner of $(brew --prefix)/*"
-sleep 2
-
-#sudo -S chown -R $(whoami) $(brew --prefix)/*
-
