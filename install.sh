@@ -59,6 +59,26 @@ done
 
 ##############################################################################################################
 
+echo "list of files to download in $HOME/programs"
+mkdir -p $HOME/programs
+programs="copyq docker google-chrome homebrew homebrew konsole libreoffice master-pdf session-manager-plugin vscode"
+
+program="https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/all_dotfiles/copyq.sh 
+https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/all_dotfiles/docker.sh 
+https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/all_dotfiles/google-chrome.sh 
+https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/all_dotfiles/homebrew.sh 
+https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/all_dotfiles/libreoffice.sh 
+https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/all_dotfiles/master-pdf.sh 
+https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/all_dotfiles/session-manager-plugin.sh 
+https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/all_dotfiles/vscode.sh"
+
+for app in ${program}; do
+    echo "Downloading $app in home directory."
+    curl ${app} -O
+done
+
+##############################################################################################################
+
 echo "Installing adobe-source-code-pro-fonts"
 sleep 2
 
@@ -87,6 +107,7 @@ else
     sleep 2
     sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
 fi
+
 ##############################################################################################################
 
 # https://docs.docker.com/compose/install/
