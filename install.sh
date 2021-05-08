@@ -89,68 +89,6 @@ else
 fi
 ##############################################################################################################
 
-test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
-test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-test -r ~/.bashrc && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bashrc
-echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
-
-echo 'Test the Homebrew installation'
-sleep 2
-
-brew --version
-
-echo "Making sure homebrew is up to date"
-sleep 2
-
-brew update --force
-brew update && brew upgrade && brew cleanup
-brew doctor
-
-echo "Increase open file limit"
-ulimit -S -n 65535
-ulimit -n
-
-echo "Installing Brew Formulae - packages"
-sleep 2
-
-{
-    brew tap aws/tap
-
-    brew install \
-        node \
-        python \
-        amazon-ecs-cli \
-        aws-cdk \
-        aws-sam-cli \
-        awscli \
-        black \
-        docker-compose \
-        git \
-        git-extras \
-        htop \
-        jq \
-        lsof \
-        lynx \
-        packer \
-        pylint \
-        terraform \
-        terragrunt \
-        tldr \
-        tmux \
-        tree
-} || {
-    echo "One or more brew formulas failed to install"
-}
-
-# Make sure the user is the owner of the homebrew directory
-
-echo "For homebrew to work properly, you need to own homebrew stuff - setting $(whoami) as owner of $(brew --prefix)/*"
-sleep 2
-
-#sudo -S chown -R $(whoami) $(brew --prefix)/*
-
-##############################################################################################################
-
 # https://docs.docker.com/compose/install/
 # https://docs.docker.com/compose/completion/
 
