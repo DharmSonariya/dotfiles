@@ -74,7 +74,7 @@ https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/all_dotfiles/vsc
 
 for app in ${program}; do
     echo "Downloading $app in home directory."
-    curl ${app} -O
+    cd $HOME/programs && { curl -O ${app} ; cd -; }
 done
 
 ##############################################################################################################
