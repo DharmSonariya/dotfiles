@@ -77,6 +77,9 @@ for app in ${program}; do
     cd $HOME/programs && { curl -O ${app} ; cd -; }
 done
 
+echo "Make the downloaded files executable"
+chmod +x programs/*.sh
+
 ##############################################################################################################
 
 echo "Installing adobe-source-code-pro-fonts"
