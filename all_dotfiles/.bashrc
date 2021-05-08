@@ -16,6 +16,24 @@ for file in ~/.{bash_prompt,aliases}; do
 done
 unset file
 
+# Reload git
+source /usr/share/bash-completion/completions/git
+
 # AWSP - AWS Profile Switcher
 alias awsp="source _awsp"
 
+alias l='ls -a'
+alias ll='ls -lt'
+alias la='ls -lta'
+
+# https://askubuntu.com/questions/470134/how-do-i-find-the-creation-time-of-a-file
+get_crtime() {
+
+    for target in "${@}"; do
+        inode=$(stat -c '%i' "${target}")
+        fs=$(df  --output=source "${target}"  | tail -1)
+        crtime=$(sudo debugfs -R 'stat <'"${inode}"'>' "${fs}" 2>/dev/null | 
+        grep -oP 'crtime.*--\s*\K.*')
+        printf "%s\t%s\n" "${target}" "${crtime}"
+    done
+}
