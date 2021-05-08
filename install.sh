@@ -63,14 +63,14 @@ echo "list of files to download in $HOME/programs"
 mkdir -p $HOME/programs
 programs="copyq docker google-chrome homebrew homebrew konsole libreoffice master-pdf session-manager-plugin vscode"
 
-program="https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/all_dotfiles/copyq.sh 
-https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/all_dotfiles/docker.sh 
-https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/all_dotfiles/google-chrome.sh 
-https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/all_dotfiles/homebrew.sh 
-https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/all_dotfiles/libreoffice.sh 
-https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/all_dotfiles/master-pdf.sh 
-https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/all_dotfiles/session-manager-plugin.sh 
-https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/all_dotfiles/vscode.sh"
+program="https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/programs/copyq.sh 
+https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/programs/docker.sh 
+https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/programs/google-chrome.sh 
+https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/programs/homebrew.sh 
+https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/programs/libreoffice.sh 
+https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/programs/master-pdf.sh 
+https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/programs/session-manager-plugin.sh 
+https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/programs/vscode.sh"
 
 for app in ${program}; do
     echo "Downloading $app in home directory."
