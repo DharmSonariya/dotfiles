@@ -33,6 +33,9 @@ brew doctor
 
 ##############################################################################################################
 
+echo "reload .bashrc"
+source ~/.bashrc
+
 echo "Increase open file limit"
 ulimit -S -n 65535
 ulimit -n
