@@ -1,25 +1,28 @@
-#!/bin/bash -xe
+#!/bin/bash -e
 
 ##############################################################################################################
 echo This script will creates user and it\'s require sudo privileged
 ##############################################################################################################
 
-export ORIGINAL_USER=$(whoami)
+if [[ $(lsb_release -d) == *Ubuntu* ]]; then
 
-echo "Hello $(whoami),"
-echo "Enter the new user name (Ex. john): "
-read -r username
-export USERNAME="$username"
+    export ORIGINAL_USER=$(whoami)
 
-echo Add new users
-adduser "$USERNAME"
-passwd "$USERNAME"
-usermod -aG wheel "$USERNAME"
-echo "User has been added to wheel group"
+    echo "Hello $(whoami),"
+    echo "Enter the new user name (Ex. john): "
+    read -r username
+    export USERNAME="$username"
 
-cd /home/$USERNAME
-su $USERNAME
+    echo Add new users $USERNAME
+    adduser "$USERNAME"
 
-sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/el7_sudo_init.sh)" &&
-    curl -fsSL https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/el7_user_init.sh | sh &&
-    curl -fsSL https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/el7_ec2_init.sh | sh
+    echo Add new users $USERNAME to sudo group
+    usermod -aG sudo "$USERNAME"
+    echo "User $USERNAME has been added to sudo group"
+
+    echo Login to user $USERNAME account
+    su - $USERNAME
+
+else
+    printf "This setup is not supported on this OS"
+fi
