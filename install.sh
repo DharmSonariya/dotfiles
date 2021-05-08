@@ -76,8 +76,11 @@ https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/programs/session
 https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/programs/vscode.sh"
 
 for app in ${program}; do
-    echo "Downloading $app in home directory."
-    cd $HOME/programs && { curl -O ${app} ; cd -; }
+    echo "Downloading $app in $HOME/programs directory."
+    cd $HOME/programs && {
+        curl -O ${app}
+        cd -
+    }
 done
 
 echo "Make the downloaded files executable"
