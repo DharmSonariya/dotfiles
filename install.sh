@@ -16,7 +16,6 @@ echo "install Ubuntu Pakages"
     sudo apt install -y \
         build-essential \
         clang \
-        curl \
         file \
         fontconfig \
         gcc \
