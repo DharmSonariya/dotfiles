@@ -19,6 +19,7 @@ echo "install Ubuntu Pakages"
         file \
         fontconfig \
         gcc \
+        gnome-sound-recorder \
         gnome-tweak-tool \
         konsole \
         nomacs \
