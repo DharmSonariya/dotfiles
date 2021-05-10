@@ -6,9 +6,10 @@ sleep 2
 sudo apt-get autoclean
 sudo apt-get clean
 
+sudo apt update -y
 sudo apt-get update -y && sudo apt-get upgrade -y
 
-sudo apt update -y
+sudo snap refresh
 
 echo "Making sure homebrew is up to date"
 sleep 2
