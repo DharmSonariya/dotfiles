@@ -16,6 +16,7 @@ echo "install Ubuntu Pakages"
     sudo apt install -y \
         build-essential \
         clang \
+        safeeyes \
         file \
         fontconfig \
         gcc \
@@ -88,6 +89,14 @@ chmod +x programs/*.sh
 
 ##############################################################################################################
 
+echo "Run all scripts in programs/"
+for f in programs/*.sh; do bash "$f" -H; done
+
+echo "Reload .bashrc"
+source ~/.bashrc
+
+##############################################################################################################
+
 echo "Installing adobe-source-code-pro-fonts"
 sleep 2
 
@@ -101,14 +110,6 @@ rm -rf source-code-pro*
 rm 1.050R-it.zip
 
 fc-cache -f -v
-
-##############################################################################################################
-
-echo "Run all scripts in programs/"
-for f in programs/*.sh; do bash "$f" -H; done
-
-echo "Reload .bashrc"
-source ~/.bashrc
 
 ##############################################################################################################
 if [ -x "$(command -v calibre)" ]; then
