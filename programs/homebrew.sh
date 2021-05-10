@@ -49,6 +49,7 @@ sleep 2
     brew install \
         node \
         python \
+        adoptopenjdk \
         amazon-ecs-cli \
         aws-cdk \
         aws-sam-cli \
@@ -57,6 +58,7 @@ sleep 2
         docker-compose \
         git \
         git-extras \
+        graphviz \
         htop \
         ipython \
         jq \
