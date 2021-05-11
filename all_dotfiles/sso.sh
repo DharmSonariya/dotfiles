@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 
 aws sso login --profile $1
-python3 ~/aws_sso.py $1
+yawsso -p $1
