@@ -21,5 +21,13 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
+
+# AWSP - AWS Profile Switcher
+alias awsp="source _awsp"
+
+alias l='ls -a'
+alias ll='ls -lt'
+alias la='ls -lta'
+
 # Associate the Python command with python 3
 alias python=python3

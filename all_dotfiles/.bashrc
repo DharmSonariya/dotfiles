@@ -19,13 +19,6 @@ unset file
 # Reload git
 source /usr/share/bash-completion/completions/git
 
-# AWSP - AWS Profile Switcher
-alias awsp="source _awsp"
-
-alias l='ls -a'
-alias ll='ls -lt'
-alias la='ls -lta'
-
 # https://askubuntu.com/questions/470134/how-do-i-find-the-creation-time-of-a-file
 get_crtime() {
 
