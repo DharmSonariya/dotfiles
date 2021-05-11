@@ -175,6 +175,12 @@ python3 -m pip install boto3 --user
 
 ##############################################################################################################
 
+# https://github.com/victorskl/yawsso
+
+echo 'Installing yawsso - Yet Another AWS SSO - sync up AWS CLI v2 SSO login session to legacy CLI v1 credentials.'
+sleep 2
+python3 -m pip install yawsso
+
 echo ==============================================================================================================================
 echo 'Configuring git'
 echo ==============================================================================================================================
