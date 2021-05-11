@@ -146,6 +146,13 @@ ecs-cli --version
 
 # https://docs.aws.amazon.com/cdk/latest/guide/getting_started.html
 
+echo 'Install the AWS CDK'
+sleep 2
+npm install -g aws-cdk
+
+echo 'Verify installation'
+cdk --version
+
 echo 'Updating the AWS CDK Language Dependencies'
 sleep 2
 python3 -m pip install --upgrade aws-cdk.core --user

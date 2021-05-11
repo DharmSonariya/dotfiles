@@ -51,7 +51,6 @@ sleep 2
         python \
         adoptopenjdk \
         amazon-ecs-cli \
-        aws-cdk \
         aws-sam-cli \
         awscli \
         black \
