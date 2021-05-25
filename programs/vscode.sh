@@ -41,7 +41,7 @@ code --install-extension AmazonWebServices.aws-toolkit-vscode \
     --install-extension ms-toolsai.jupyter \
     --install-extension yzhang.markdown-all-in-one \
     --install-extension mervin.markdown-formatter \
-    --install-extension donjayamanne.githistory \
+    --install-extension eamodio.gitlens \
     --install-extension jebbs.plantuml \
     --install-extension ms-vscode.theme-predawnkit \
     --install-extension ms-python.python \
