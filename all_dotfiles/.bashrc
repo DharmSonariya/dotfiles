@@ -11,7 +11,7 @@ fi
 # User specific aliases and functions
 
 # Load dotfiles:
-for file in ~/.{bash_prompt,aliases}; do
+for file in ~/.{aliases,aws_helper,bash_prompt}; do
     [ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 unset file
