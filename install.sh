@@ -52,8 +52,6 @@ https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/all_dotfiles/.ba
 https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/all_dotfiles/.bash_prompt 
 https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/all_dotfiles/.bashrc 
 https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/all_dotfiles/.gitignore
-https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/all_dotfiles/aws_sso.py
-https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/all_dotfiles/sso.sh
 https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/all_dotfiles/upgrade.sh"
 
 for file in ${file_url}; do
