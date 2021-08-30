@@ -45,7 +45,6 @@ echo "Snap Install Packages"
 ##############################################################################################################
 
 echo "list of files to download in $HOME"
-files="aliases bash_profile bash_prompt bashrc"
 
 file_url="https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/all_dotfiles/.aliases 
 https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/all_dotfiles/.aws_helper 
