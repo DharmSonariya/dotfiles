@@ -1,0 +1,24 @@
+# Function provide shortcuts to common AWS commands
+
+sso() { 
+    aws sso login;
+    account_name=$(aws iam list-account-aliases --output text | cut -f2);
+    echo "${account_name}";
+    yawsso -p "$account_name"; }
+
+srvls() {
+    aws ec2 describe-instances \
+        --query "Reservations[*].Instances[*].{InstanceId: InstanceId, State: State.Name, LaunchTime: LaunchTime, Name: Tags[?Key=='Name'] | [0].Value}" \
+        --output table
+}
+srvssh() { 
+    ssh_key_name=$(aws iam list-account-aliases --output text  | cut -f2);
+    echo "${ssh_key_name}";
+    ssh -i $HOME/.aws/pems/"$ssh_key_name.pem" ec2-user@"$1"; 
+    }
+
+srvconnect() { aws ssm start-session --target "$1"; }
+
+s3cp() { aws s3 cp  s3://$1 s3://$2 --acl bucket-owner-full-control; }
+
+# Shortcuts to commonly used AWS commands are available through these Aliases
