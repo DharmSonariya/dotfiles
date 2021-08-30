@@ -48,6 +48,7 @@ echo "list of files to download in $HOME"
 files="aliases bash_profile bash_prompt bashrc"
 
 file_url="https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/all_dotfiles/.aliases 
+https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/all_dotfiles/.aws_helper 
 https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/all_dotfiles/.bash_profile 
 https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/all_dotfiles/.bash_prompt 
 https://raw.githubusercontent.com/DharmSonariya/dotfiles/master/all_dotfiles/.bashrc 
