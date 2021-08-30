@@ -252,4 +252,15 @@ npm install -g awsp
 
 ##############################################################################################################
 
+echo "Appending lines to local host SSH config /.ssh/config"
+sudo cat >>~/.ssh/config <<EOL
+# SSH over Session Manager
+
+host i-* mi-*
+
+ProxyCommand sh -c "aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters 'portNumber=%p'"
+EOL
+
+##############################################################################################################
+
 exit 0
